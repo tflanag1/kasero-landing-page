@@ -1066,19 +1066,6 @@ if(confirmationModal) confirmationModal.addEventListener('click', (e) => {
     }
 });
 
-    // --- Form Submission Logic ---
-    const emailForm = document.querySelector('.modal-content .email-form');
-if(emailForm) {
-    emailForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        this.reset();
-        closeModal();
-        setTimeout(() => {
-            openConfirmationModal();
-        }, 300); // Small delay for smooth transition
-    });
-}
-
     // --- Scroll Animation Logic ---
     const observerOptions = {
         threshold: 0.1,
