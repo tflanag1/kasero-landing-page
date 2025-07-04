@@ -1000,33 +1000,12 @@
         </form>
     </div>
 </div>
-<!-- Confirmation Modal -->
-<div class="modal-overlay" id="confirmation-modal">
-    <div class="modal-content" style="max-width: 500px; padding: 60px 40px; text-align: center;">
-        <div style="font-size: 48px; color: #5e8eee; margin-bottom: 20px;">✓</div>
-        <h2 style="font-size: 24px; margin-bottom: 16px; color: #1a1a1a;">Thank You!</h2>
-        <p style="color: #666; margin-bottom: 32px; line-height: 1.6;">Thank you for your interest in becoming a Founding Member; we can't wait to welcome you to the community!</p>
-        <button class="submit-button" onclick="closeConfirmationModal()" style="margin: 0 auto;">OK</button>
-    </div>
-</div>
-<script>
-    // --- Smooth scrolling for anchor links ---
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            const href = this.getAttribute('href');
-            if (href && href.length > 1 && document.querySelector(href)) {
-                e.preventDefault();
-                document.querySelector(href).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            }
-        });
-    });
 
+<script>
     // --- Modal/Pop-up Logic ---
     const modal = document.getElementById('kasero-modal');
     const openModalButtons = document.querySelectorAll('.js-open-modal');
-    const closeModalButton = document.querySelector('.modal-content .close-button'); const confirmationModal = document.getElementById('confirmation-modal');
+    const closeModalButton = document.querySelector('.modal-content .close-button');
 
     const openModal = () => {
         if(modal) modal.style.display = 'flex';
@@ -1035,16 +1014,6 @@
     const closeModal = () => {
         if(modal) modal.style.display = 'none';
     };
-const openConfirmationModal = () => {
-    if(confirmationModal) confirmationModal.style.display = 'flex';
-};
-
-const closeConfirmationModal = () => {
-    if(confirmationModal) confirmationModal.style.display = 'none';
-};
-
-// Make closeConfirmationModal globally accessible
-window.closeConfirmationModal = closeConfirmationModal;
 
     openModalButtons.forEach(button => {
         button.addEventListener('click', (e) => {
@@ -1060,11 +1029,6 @@ window.closeConfirmationModal = closeConfirmationModal;
             closeModal();
         }
     });
-if(confirmationModal) confirmationModal.addEventListener('click', (e) => {
-    if (e.target === confirmationModal) {
-        closeConfirmationModal();
-    }
-});
 
     // --- Scroll Animation Logic ---
     const observerOptions = {
@@ -1089,7 +1053,6 @@ if(confirmationModal) confirmationModal.addEventListener('click', (e) => {
         observer.observe(el);
     });
 </script>
-
 </body>
 </html>
 
