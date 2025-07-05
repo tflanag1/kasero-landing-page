@@ -993,15 +993,29 @@
         <p style="text-align: left;">We'll send the official invitation to your inbox the moment we launch!</p>
 
         <form class="email-form" method="POST" action="https://getlaunchlist.com/s/dLy4Jg">
-            <div class="form-group">
-                <input type="email" name="email" class="email-input" placeholder="Enter your School Email address" required>
-                <button type="submit" class="submit-button">Request My Invitation</button>
-            </div>
-        </form>
+    <div class="form-group">
+        <input type="email" name="email" class="email-input" placeholder="Enter your School Email address" required>
+        <button type="submit" class="submit-button">Request My Invitation</button>
+    </div>
+    <input type="hidden" name="referral" id="referral-code-input">
+</form>
     </div>
 </div>
 
 <script>
+// --- Capture Referral Code from URL ---
+document.addEventListener('DOMContentLoaded', () => {
+    try {
+        const urlParams = new URLSearchParams(window.location.search);
+        const referralCode = urlParams.get('ref');
+        const referralInput = document.getElementById('referral-code-input');
+        if (referralCode && referralInput) {
+            referralInput.value = referralCode;
+        }
+    } catch (e) {
+        console.error("Error capturing referral code:", e);
+    }
+});
     // --- Modal/Pop-up Logic ---
     const modal = document.getElementById('kasero-modal');
     const openModalButtons = document.querySelectorAll('.js-open-modal');
